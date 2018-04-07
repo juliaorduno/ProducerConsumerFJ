@@ -28,7 +28,8 @@ public class ProducerConsumer {
     }
 
     public static void main(String[] args) {
-        start();
+        GUI frame = new GUI();
+        frame.setVisible(true);
     }
     
 }
