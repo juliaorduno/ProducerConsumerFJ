@@ -29,15 +29,13 @@ public class Producer extends Thread {
     }
     
     private int randomGenerator(){
-        //CHECK CALCULATION PLZ
-        return this.random.nextInt(this.max) + this.min;
+        return this.random.nextInt(this.max) + this.min + 1;
     }
     
     private Operation setRandomOperation(){
         String symbols = "+-*/";
         char symbol = symbols.charAt(this.random.nextInt(4));
         int value1, value2;
-        // HARDCODED
         value1 = this.randomGenerator();
         value2 = this.randomGenerator();
         
@@ -48,11 +46,16 @@ public class Producer extends Thread {
     public void run() {
         System.out.println("Running Producer: " + this.id);
         
-        Operation product = setRandomOperation();
-        try {
-            this.buffer.produce(product);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
+        while(true){
+            Operation product = setRandomOperation();
+            try {
+                this.buffer.produce(product);
+                String output = this.id + " produced " + product.operationString();
+                Thread.sleep(this.time);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }
     

@@ -27,6 +27,9 @@ public class Consumer extends Thread {
         while(true){
             try {
                 product = this.buffer.consume();
+                double result = product.getResult();
+                String output = this.id + " consumed " + product.operationString() + " = " + result;
+                Thread.sleep(this.time);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, ex);
             }

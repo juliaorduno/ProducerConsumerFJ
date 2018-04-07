@@ -21,7 +21,7 @@ public class Operation {
         this.symbol = symbol;
     }
     
-    private double getResult(){
+    public double getResult(){
         switch(this.symbol){
             case '+': 
                 this.result = this.a+this.b;
