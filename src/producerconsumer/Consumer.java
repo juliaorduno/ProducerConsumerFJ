@@ -9,27 +9,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Consumer extends Thread {
-    private Buffer buffer;
-    private int time;
-    private String id;
+    private final Buffer buffer;
+    private final int time;
+    private final String id;
+    private final GUI frame;
     
-    Consumer(Buffer buffer, int time, String id) {
+    Consumer(Buffer buffer, int time, String id, GUI frame) {
         this.buffer = buffer;
         this.time = time;
         this.id = id;
+        this.frame = frame;
     }
     
     @Override
     public void run() {
-        System.out.println("Running Consumer: " + this.id);
         Operation product;
         
         while(true){
             try {
                 product = this.buffer.consume();
                 double result = product.getResult();
-                String output = this.id + " consumed " + product.operationString() + " = " + result;
+                String task = this.id + " consumed " + product.operationString() + " = " + result;
+                this.frame.addDone(task);
                 Thread.sleep(this.time);
+                this.frame.removeTodo();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, ex);
             }

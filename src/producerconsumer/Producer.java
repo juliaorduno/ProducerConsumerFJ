@@ -14,18 +14,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Producer extends Thread {
-    private Buffer buffer;
-    private Random random;
-    private int min, max, time;
-    private String id;
+    private final Buffer buffer;
+    private final Random random;
+    private final int min;
+    private final int max;
+    private final int time;
+    private final String id;
+    private final GUI frame;
     
-    public Producer(Buffer buffer, String id, int min, int max, int time) {
+    public Producer(Buffer buffer, String id, int min, int max, int time, GUI frame) {
         this.buffer = buffer;
         this.random = new Random();
         this.id = id;
         this.min = min;
         this.max = max;
         this.time = time;
+        this.frame = frame;
     }
     
     private int randomGenerator(){
@@ -44,13 +48,12 @@ public class Producer extends Thread {
     
     @Override
     public void run() {
-        System.out.println("Running Producer: " + this.id);
-        
         while(true){
             Operation product = setRandomOperation();
             try {
                 this.buffer.produce(product);
-                String output = this.id + " produced " + product.operationString();
+                String task = this.id + " produced " + product.operationString();
+                this.frame.addTodo(task);
                 Thread.sleep(this.time);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);

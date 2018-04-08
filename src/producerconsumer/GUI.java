@@ -9,13 +9,23 @@ package producerconsumer;
  *
  * @author FernandaLopez
  */
+
+import java.util.ArrayList;
+import javax.swing.*;
+
 public class GUI extends javax.swing.JFrame {
+    
+    private DefaultListModel<String> toDo, done;
 
     /**
      * Creates new form GUI
      */
     public GUI() {
+        
         initComponents();
+        this.toDo = new DefaultListModel<>();
+        this.done = new DefaultListModel<>();
+        
     }
 
     /**
@@ -44,7 +54,9 @@ public class GUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tFmax = new javax.swing.JTextField();
         scrollToDo = new javax.swing.JScrollPane();
+        todoList = new javax.swing.JList<>();
         scrollDone = new javax.swing.JScrollPane();
+        doneList = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnStart = new javax.swing.JButton();
@@ -108,6 +120,24 @@ public class GUI extends javax.swing.JFrame {
                 tFmaxActionPerformed(evt);
             }
         });
+
+        scrollToDo.setViewportView(todoList);
+
+        todoList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        scrollToDo.setViewportView(todoList);
+
+        scrollDone.setViewportView(doneList);
+
+        doneList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        scrollDone.setViewportView(doneList);
 
         jLabel9.setText("TO DO");
 
@@ -302,9 +332,40 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public JButton getStartButton(){
+        return this.btnStart;
+    }
+    
+    private void addTask(DefaultListModel listModel, JList list, JScrollPane scrollPane){
+        list.setModel(listModel);
+        scrollPane.setViewportView(list);
+    }
+    
+    public void removeTodo(){
+        if(this.toDo.size()>0){
+            this.toDo.remove(0);
+            this.addTask(this.toDo, this.todoList, this.scrollToDo);
+        }
+        
+        //
+    }
+    
+    public void addTodo(String task){
+        System.out.println(task);
+        this.toDo.addElement(task);
+        this.addTask(this.toDo, this.todoList, this.scrollToDo);
+    }
+    
+    public void addDone(String task){
+        System.out.println(task);
+        this.done.addElement(task);
+        this.addTask(this.done, this.doneList, this.scrollDone);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStart;
+    private javax.swing.JList<String> doneList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -325,5 +386,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField tFnumProducers;
     private javax.swing.JTextField tFtimeConsumers;
     private javax.swing.JTextField tFtimeProducers;
+    private javax.swing.JList<String> todoList;
     // End of variables declaration//GEN-END:variables
 }

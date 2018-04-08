@@ -29,7 +29,7 @@ public class Buffer {
     }
     
     public synchronized void produce(Operation product) throws InterruptedException {
-        while(this.buffer.size() == this.size){
+        while(this.buffer.size() >= this.size){
             wait();
         }
         
