@@ -11,9 +11,30 @@ package producerconsumer;
  */
 public class ProducerConsumer {
     
-    private static int bufferSize, numConsumers, numProducers, timeProducer, timeConsumer, min, max;
     
-    public static void start(){
+    
+    private static int bufferSize, numConsumers, numProducers, timeProducer, timeConsumer, min, max;
+     public static void main(String[] args) {
+        GUI frame = new GUI();
+        frame.setVisible(true);
+        
+        javax.swing.JButton btnStart = frame.getStartButton();
+        
+        btnStart.addActionListener((java.awt.event.ActionEvent evt) -> {
+            start(frame);
+        });
+    }
+     
+    public static void start(GUI frame){
+        int minRange = frame.getMinRange();
+        int maxRange = frame.getMaxRange();
+        int bufferSize = frame.getBufferSize();
+        int consumers = frame.getConsumers();
+        int producers = frame.getProducers();
+        long producerTime = frame.getProducerTime();
+        long consumerTime = frame.getConsumerTime();
+        
+        
         Buffer buffer = new Buffer(bufferSize);
         
         for(int i = 0; i < numProducers; i++) {
@@ -27,9 +48,6 @@ public class ProducerConsumer {
         }
     }
 
-    public static void main(String[] args) {
-        GUI frame = new GUI();
-        frame.setVisible(true);
-    }
+   
     
 }
