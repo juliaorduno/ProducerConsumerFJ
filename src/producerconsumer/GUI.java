@@ -10,7 +10,6 @@ package producerconsumer;
  * @author FernandaLopez
  */
 
-import java.util.ArrayList;
 import javax.swing.*;
 
 public class GUI extends javax.swing.JFrame {
@@ -40,8 +39,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        tFnumConsumers = new javax.swing.JTextField();
-        tFnumProducers = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tFtimeConsumers = new javax.swing.JTextField();
@@ -50,9 +47,7 @@ public class GUI extends javax.swing.JFrame {
         tFtimeProducers = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        tFmin = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        tFmax = new javax.swing.JTextField();
         scrollToDo = new javax.swing.JScrollPane();
         todoList = new javax.swing.JList<>();
         scrollDone = new javax.swing.JScrollPane();
@@ -60,24 +55,16 @@ public class GUI extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnStart = new javax.swing.JButton();
+        jSProducers = new javax.swing.JSpinner();
+        jSConsumers = new javax.swing.JSpinner();
+        jSMin = new javax.swing.JSpinner();
+        jSMax = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Producers");
 
         jLabel2.setText("Consumers");
-
-        tFnumConsumers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tFnumConsumersActionPerformed(evt);
-            }
-        });
-
-        tFnumProducers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tFnumProducersActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("QTY");
 
@@ -107,19 +94,7 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel7.setText("From");
 
-        tFmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tFminActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("To");
-
-        tFmax.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tFmaxActionPerformed(evt);
-            }
-        });
 
         scrollToDo.setViewportView(todoList);
 
@@ -160,28 +135,30 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(tFnumProducers, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(tFnumConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabel3))
+                                    .addComponent(jSProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(75, 75, 75)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tFtimeConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4)
-                                    .addComponent(tFtimeProducers, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tFtimeProducers, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tFbufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addGap(96, 96, 96))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addGap(33, 33, 33)
-                                .addComponent(tFmin, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67)
+                                .addGap(32, 32, 32)
+                                .addComponent(jSMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(104, 104, 104)
                                 .addComponent(jLabel8)
-                                .addGap(31, 31, 31)
-                                .addComponent(tFmax, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tFbufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(96, 96, 96))
+                                .addGap(76, 76, 76)
+                                .addComponent(jSMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -213,16 +190,16 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(tFnumProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tFtimeProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tFtimeProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSProducers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(tFbufferSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tFnumConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tFtimeConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tFtimeConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSConsumers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,9 +207,9 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(tFmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tFmax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jSMin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -270,14 +247,6 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tFnumConsumersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tFnumConsumersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tFnumConsumersActionPerformed
-
-    private void tFnumProducersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tFnumProducersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tFnumProducersActionPerformed
-
     private void tFtimeConsumersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tFtimeConsumersActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tFtimeConsumersActionPerformed
@@ -290,13 +259,33 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tFtimeProducersActionPerformed
 
-    private void tFminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tFminActionPerformed
+    private void tfTimeProducersKeyTyped(java.awt.event.KeyEvent evt) {                                     
         // TODO add your handling code here:
-    }//GEN-LAST:event_tFminActionPerformed
-
-    private void tFmaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tFmaxActionPerformed
+        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }
+    } 
+    
+    private void tfTimeConsumersKeyTyped(java.awt.event.KeyEvent evt) {                                     
         // TODO add your handling code here:
-    }//GEN-LAST:event_tFmaxActionPerformed
+        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }
+    } 
+    
+    private void tfBufferSizeKeyTyped(java.awt.event.KeyEvent evt) {                                     
+        // TODO add your handling code here:
+        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter))){
+            evt.consume();
+        }
+    } 
+    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        this.startProgram = true;
+    }                                        
 
     /**
      * @param args the command line arguments
@@ -332,7 +321,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public JButton getStartButton(){
         return this.btnStart;
     }
@@ -347,8 +336,6 @@ public class GUI extends javax.swing.JFrame {
             this.toDo.remove(0);
             this.addTask(this.toDo, this.todoList, this.scrollToDo);
         }
-        
-        //
     }
     
     public void addTodo(String task){
@@ -362,6 +349,7 @@ public class GUI extends javax.swing.JFrame {
         this.done.addElement(task);
         this.addTask(this.done, this.doneList, this.scrollDone);
     }
+    public boolean startProgram = false;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStart;
@@ -377,15 +365,37 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSpinner jSConsumers;
+    private javax.swing.JSpinner jSMax;
+    private javax.swing.JSpinner jSMin;
+    private javax.swing.JSpinner jSProducers;
     private javax.swing.JScrollPane scrollDone;
     private javax.swing.JScrollPane scrollToDo;
     private javax.swing.JTextField tFbufferSize;
-    private javax.swing.JTextField tFmax;
-    private javax.swing.JTextField tFmin;
-    private javax.swing.JTextField tFnumConsumers;
-    private javax.swing.JTextField tFnumProducers;
     private javax.swing.JTextField tFtimeConsumers;
     private javax.swing.JTextField tFtimeProducers;
     private javax.swing.JList<String> todoList;
     // End of variables declaration//GEN-END:variables
+
+public int getMinRange(){
+    return (int) this.jSMax.getValue();
+    }
+public int getMaxRange(){
+    return (int) this.jSMax.getValue();
+    }
+public int getConsumers(){
+    return (int) this.jSConsumers.getValue();
+    }
+public int getProducers(){
+    return (int) this.jSProducers.getValue();
+    }
+public long getConsumerTime(){
+    return (long) Long.parseLong(this.tFtimeConsumers.getText());
+    }
+public long getProducerTime(){
+        return (long) Long.parseLong(this.tFtimeProducers.getText());
+    }
+public int getBufferSize(){
+        return (int) Integer.parseInt(this.tFbufferSize.getText());
+    }
 }

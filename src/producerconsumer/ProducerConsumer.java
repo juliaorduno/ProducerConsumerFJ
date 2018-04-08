@@ -13,19 +13,22 @@ import java.awt.event.ActionEvent;
  */
 public class ProducerConsumer {
     
-    private static int bufferSize, numConsumers, numProducers, timeProducer, timeConsumer, min, max;
+    private static int bufferSize, numConsumers, numProducers, min, max;
+    private static long timeProducer, timeConsumer;
     private static GUI frame;
     private static Buffer buffer;
-    
+     
     public static void start(){
-        bufferSize = 1;
-        numProducers = 5;
-        numConsumers = 5;
-        min = 5;
-        max = 50;
-        timeProducer = 1000;
-        timeConsumer = 1000;
+        min = frame.getMinRange();
+        max = frame.getMaxRange();
+        bufferSize = frame.getBufferSize();
+        numConsumers = frame.getConsumers();
+        numProducers = frame.getProducers();
+        timeProducer = frame.getProducerTime();
+        timeConsumer = frame.getConsumerTime();
+        
         buffer = new Buffer(bufferSize);
+
         
         for(int i = 0; i < numProducers; i++) {
             Producer producer = new Producer(buffer, "P"+i, min, max, timeProducer, frame);

@@ -10,11 +10,11 @@ import java.util.logging.Logger;
 
 public class Consumer extends Thread {
     private final Buffer buffer;
-    private final int time;
+    private final long time;
     private final String id;
     private final GUI frame;
     
-    Consumer(Buffer buffer, int time, String id, GUI frame) {
+    Consumer(Buffer buffer, long time, String id, GUI frame) {
         this.buffer = buffer;
         this.time = time;
         this.id = id;

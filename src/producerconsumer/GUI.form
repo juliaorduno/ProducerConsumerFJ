@@ -58,11 +58,12 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tFnumProducers" min="-2" pref="69" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="tFnumConsumers" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="jSProducers" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jSConsumers" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -70,23 +71,24 @@
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <Component id="tFtimeProducers" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tFbufferSize" min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="tFmin" min="-2" pref="69" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="jSMin" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="tFmax" min="-2" pref="69" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                  <Component id="jSMax" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="tFbufferSize" min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -128,8 +130,8 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tFnumProducers" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tFtimeProducers" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSProducers" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -140,8 +142,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tFnumConsumers" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tFtimeConsumers" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSConsumers" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -150,9 +152,9 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tFmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tFmax" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSMin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSMax" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
                       </Group>
@@ -191,16 +193,6 @@
             <Property name="text" type="java.lang.String" value="Consumers"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tFnumConsumers">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tFnumConsumersActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tFnumProducers">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tFnumProducersActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="QTY"/>
@@ -210,6 +202,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Wait time (millis)"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="GUI_jLabel4"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="tFtimeConsumers">
           <Events>
@@ -241,20 +236,10 @@
             <Property name="text" type="java.lang.String" value="From"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tFmin">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tFminActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="text" type="java.lang.String" value="To"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tFmax">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tFmaxActionPerformed"/>
-          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="scrollToDo">
           <Properties>
@@ -324,6 +309,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="START"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jSProducers">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jSConsumers">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jSMin">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jSMax">
         </Component>
       </SubComponents>
     </Container>

@@ -18,11 +18,11 @@ public class Producer extends Thread {
     private final Random random;
     private final int min;
     private final int max;
-    private final int time;
+    private final long time;
     private final String id;
     private final GUI frame;
     
-    public Producer(Buffer buffer, String id, int min, int max, int time, GUI frame) {
+    public Producer(Buffer buffer, String id, int min, int max, long time, GUI frame) {
         this.buffer = buffer;
         this.random = new Random();
         this.id = id;
