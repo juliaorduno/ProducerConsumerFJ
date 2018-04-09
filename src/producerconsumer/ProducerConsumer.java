@@ -6,6 +6,7 @@
 package producerconsumer;
 
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 
 /**
  *
@@ -29,7 +30,6 @@ public class ProducerConsumer {
         
         buffer = new Buffer(bufferSize);
 
-        
         for(int i = 0; i < numProducers; i++) {
             Producer producer = new Producer(buffer, "P"+i, min, max, timeProducer, frame);
             producer.start();
@@ -45,8 +45,11 @@ public class ProducerConsumer {
         frame = new GUI();
         frame.setVisible(true);
         
-        frame.getStartButton().addActionListener((ActionEvent e) -> {
+        JButton startButton = frame.getStartButton();
+        
+        startButton.addActionListener((ActionEvent e) -> {
             start();
+            startButton.setEnabled(false);
         });
     }
     

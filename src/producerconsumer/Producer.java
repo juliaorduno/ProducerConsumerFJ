@@ -33,7 +33,7 @@ public class Producer extends Thread {
     }
     
     private int randomGenerator(){
-        return this.random.nextInt(this.max) + this.min + 1;
+        return this.random.nextInt(this.max - this.min) + this.min + 1;
     }
     
     private Operation setRandomOperation(){
@@ -54,6 +54,7 @@ public class Producer extends Thread {
                 this.buffer.produce(product);
                 String task = this.id + " produced " + product.operationString();
                 this.frame.addTodo(task);
+                this.frame.increaseTotalTodo();
                 Thread.sleep(this.time);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);

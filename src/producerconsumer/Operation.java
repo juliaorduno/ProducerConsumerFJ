@@ -43,7 +43,7 @@ public class Operation {
     }
     
     public String operationString(){
-        return this.symbol + " " + this.a + " " + this.b;
+        return "( " + this.symbol + " " + this.a + " " + this.b + " )";
     }
     
 }

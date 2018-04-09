@@ -33,6 +33,7 @@ public class Consumer extends Thread {
                 this.frame.addDone(task);
                 Thread.sleep(this.time);
                 this.frame.removeTodo();
+                this.frame.increaseTotalDone();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, ex);
             }
