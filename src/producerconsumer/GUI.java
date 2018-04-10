@@ -95,6 +95,17 @@ public class GUI extends javax.swing.JFrame {
                 tFtimeProducersActionPerformed(evt);
             }
         });
+        tFtimeProducers.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tFtimeProducersKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tFtimeProducersKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tFtimeProducersKeyReleased(evt);
+            }
+        });
 
         jLabel6.setText("Define range of numbers (min,max)\n");
 
@@ -300,12 +311,22 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTtotalDoneActionPerformed
 
+    private void tFtimeProducersKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFtimeProducersKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tFtimeProducersKeyTyped
+
+    private void tFtimeProducersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFtimeProducersKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tFtimeProducersKeyReleased
+
+    private void tFtimeProducersKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFtimeProducersKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_tFtimeProducersKeyPressed
+
     private void tfTimeProducersKeyTyped(java.awt.event.KeyEvent evt) {                                     
         // TODO add your handling code here:
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
-            evt.consume();
-        }
+
     } 
     
     private void tfTimeConsumersKeyTyped(java.awt.event.KeyEvent evt) {                                     
@@ -436,8 +457,8 @@ public class GUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 public int getMinRange(){
-    return (int) this.jSMin.getValue();
-    }
+    return (int) this.jSMin.getValue(); 
+}
 public int getMaxRange(){
     return (int) this.jSMax.getValue();
     }
@@ -448,12 +469,29 @@ public int getProducers(){
     return (int) this.jSProducers.getValue();
     }
 public long getConsumerTime(){
-    return (long) Long.parseLong(this.tFtimeConsumers.getText());
+    try{
+       return (long) Long.parseLong(this.tFtimeConsumers.getText());
+    } catch(NumberFormatException ex){
+        return -1;
     }
+    
+}
 public long getProducerTime(){
-        return (long) Long.parseLong(this.tFtimeProducers.getText());
+    try{
+       return (long) Long.parseLong(this.tFtimeProducers.getText());
+    } catch(NumberFormatException ex){
+        return -1;
+    }
+        
     }
 public int getBufferSize(){
-        return (int) Integer.parseInt(this.tFbufferSize.getText());
+        try{
+       return (int) Integer.parseInt(this.tFbufferSize.getText());
+    } catch(NumberFormatException ex){
+        return -1;
+    }
+        
     }
 }
+
+

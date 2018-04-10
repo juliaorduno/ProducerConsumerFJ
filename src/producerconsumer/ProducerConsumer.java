@@ -27,17 +27,21 @@ public class ProducerConsumer {
         numProducers = frame.getProducers();
         timeProducer = frame.getProducerTime();
         timeConsumer = frame.getConsumerTime();
-        
-        buffer = new Buffer(bufferSize);
+        if(timeProducer != -1 && timeConsumer != -1 && bufferSize != -1 && (max > min)){
+            frame.getStartButton().setEnabled(false);
+            buffer = new Buffer(bufferSize);
 
-        for(int i = 0; i < numProducers; i++) {
-            Producer producer = new Producer(buffer, "P"+i, min, max, timeProducer, frame);
-            producer.start();
-        }
-        
-        for (int i = 0; i < numConsumers; i++) {
-            Consumer consumer = new Consumer(buffer, timeConsumer, "C"+i, frame);
-            consumer.start();
+
+
+                    for(int i = 0; i < numProducers; i++) {
+                        Producer producer = new Producer(buffer, "P"+i, min, max, timeProducer, frame);
+                        producer.start();
+                    }
+
+                    for (int i = 0; i < numConsumers; i++) {
+                        Consumer consumer = new Consumer(buffer, timeConsumer, "C"+i, frame);
+                        consumer.start();
+                    }
         }
     }
 
@@ -49,7 +53,6 @@ public class ProducerConsumer {
         
         startButton.addActionListener((ActionEvent e) -> {
             start();
-            startButton.setEnabled(false);
         });
     }
     
